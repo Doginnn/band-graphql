@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Lyric;
+use App\Models\Music;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class LyricFactory extends Factory
 {
+    protected $model = Lyric::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +21,8 @@ class LyricFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'content'=> $this->faker->paragraph,
+            'music_id' => Music::factory()->create()->id
         ];
     }
 }
