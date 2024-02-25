@@ -34,4 +34,4 @@ services:
             POSTGRES_PASSWORD: 123Mudar!
         volumes:
             - ./:/var/www
-            - ./docker_database/:/var/lib/postgresql/data
+            - ./docker_database/laravel/:/var/lib/postgresql/data
