@@ -1,8 +1,10 @@
-## Passo a passo para rodar o projeto
+# Instruções para rodar o projeto
 Clone o projeto
 ```sh
 git clone git@github.com:Doginnn/band-graphql.git
 ```
+
+Acesse o diretório clonado
 ```sh
 cd band-graphql
 ```
@@ -30,24 +32,35 @@ Suba os containers do projeto
 docker-compose up -d
 ```
 
-
 Acesse o container
 ```sh
 docker-compose exec app bash
 ```
 
+Instale o GraphQL no projeto
+```sh
+composer require rebing/graphql-laravel
+```
+
+Publique o arquivo de configuração
+```sh
+php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider"
+```
 
 Instale as dependências do projeto
 ```sh
 composer install
 ```
 
-
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
 ```
 
+Gere a migração do banco no projeto Laravel
+```sh
+php artisan migrate
+```
 
 Acesse o projeto
 [http://localhost:8000](http://localhost:8000)
