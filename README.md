@@ -1,4 +1,4 @@
-# Instruções para rodar o projeto
+# INSTRUÇÕES PARA RODAR O PROJETO
 Clone o projeto
 ```sh
 git clone git@github.com:Doginnn/band-graphql.git
@@ -63,4 +63,18 @@ php artisan migrate
 ```
 
 Acesse o projeto
+
 [http://localhost:8000](http://localhost:8000)
+
+## INSTRUÇÕES PARA POPULAR DADOS NO BANCO(Álbums, Músicas e Letras)
+
+Foram criados Factories para popular o banco com Álbums, Músicas e Letras. Para popular o banco, basta rodar o comando correto.
+
+Caso ainda não tenha rodado o "php artisan migrate"(Cria as tabelas e popula com os dados)
+```sh
+php artisan migrate --seed
+```
+Caso já tenha rodado o "php artisan migrate"(Apenas popula os dados)
+```sh
+php artisan db:seed
+```
