@@ -2,6 +2,10 @@
 
 declare(strict_types = 1);
 
+use App\GraphQL\Queries\AlbumQuery;
+use App\GraphQL\Queries\AlbumsQuery;
+use App\GraphQL\Types\AlbumType;
+
 return [
     'route' => [
         // The prefix for routes; do NOT use a leading slash!
@@ -75,14 +79,15 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                AlbumQuery::class,
+                AlbumsQuery::class
             ],
             'mutation' => [
                 // ExampleMutation::class,
             ],
             // The types only available in this schema
             'types' => [
-                // ExampleType::class,
+                AlbumType::class
             ],
 
             // Laravel HTTP middleware
@@ -106,9 +111,7 @@ return [
     // ]
     //
     'types' => [
-        // ExampleType::class,
-        // ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        AlbumType::class
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
