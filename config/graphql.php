@@ -4,7 +4,10 @@ declare(strict_types = 1);
 
 use App\GraphQL\Queries\AlbumQuery;
 use App\GraphQL\Queries\AlbumsQuery;
+use App\GraphQL\Queries\MusicQuery;
+use App\GraphQL\Queries\MusicsQuery;
 use App\GraphQL\Types\AlbumType;
+use App\GraphQL\Types\MusicType;
 
 return [
     'route' => [
@@ -80,14 +83,17 @@ return [
         'default' => [
             'query' => [
                 AlbumQuery::class,
-                AlbumsQuery::class
+                AlbumsQuery::class,
+                MusicQuery::class,
+                MusicsQuery::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
             ],
             // The types only available in this schema
             'types' => [
-                AlbumType::class
+                AlbumType::class,
+                MusicType::class
             ],
 
             // Laravel HTTP middleware
@@ -111,7 +117,8 @@ return [
     // ]
     //
     'types' => [
-        AlbumType::class
+        AlbumType::class,
+        MusicType::class
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
