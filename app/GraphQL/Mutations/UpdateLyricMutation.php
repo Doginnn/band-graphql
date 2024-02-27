@@ -29,10 +29,6 @@ class UpdateLyricMutation extends Mutation
                 'type' => Type::id(),
                 'description' => 'The auto incremented lyric ID.'
             ],
-            'title' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'The Lyric Title.'
-            ],
             'content' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The Lyric content.'

@@ -25,10 +25,6 @@ class CreateLyricMutation extends Mutation
     public function args(): array
     {
         return [
-            'title' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'The Lyric Title.'
-            ],
             'content' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The Lyric content.'
