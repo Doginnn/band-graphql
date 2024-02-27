@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\GraphQL\Mutations;
 
-use App\Models\Album;
+use App\Models\Music;
 use Closure;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Mutation;
 
-class DestroyAlbumMutation extends Mutation
+class DestroyMusicMutation extends Mutation
 {
     protected $attributes = [
-        'name' => 'destroyAlbum',
+        'name' => 'destroyMusic',
     ];
 
     public function type(): Type
@@ -26,15 +26,15 @@ class DestroyAlbumMutation extends Mutation
         return [
             'id' => [
                 'type' => Type::id(),
-                'description' => 'The auto incremented Album ID.'
+                'description' => 'The auto incremented Music ID.'
             ]
         ];
     }
 
     public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
-        $album = Album::findOrFail($args['id']);
+        $music = Music::findOrFail($args['id']);
 
-        return $album->deleteOrFail($args);
+        return $music->deleteOrFail($args);
     }
 }

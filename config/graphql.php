@@ -3,8 +3,11 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Mutations\CreateAlbumMutation;
+use App\GraphQL\Mutations\CreateMusicMutation;
 use App\GraphQL\Mutations\DestroyAlbumMutation;
+use App\GraphQL\Mutations\DestroyMusicMutation;
 use App\GraphQL\Mutations\UpdateAlbumMutation;
+use App\GraphQL\Mutations\UpdateMusicMutation;
 use App\GraphQL\Queries\AlbumQuery;
 use App\GraphQL\Queries\AlbumsQuery;
 use App\GraphQL\Queries\LyricQuery;
@@ -98,7 +101,10 @@ return [
             'mutation' => [
                 CreateAlbumMutation::class,
                 UpdateAlbumMutation::class,
-                DestroyAlbumMutation::class
+                DestroyAlbumMutation::class,
+                CreateMusicMutation::class,
+                UpdateMusicMutation::class,
+                DestroyMusicMutation::class,
             ],
             // The types only available in this schema
             'types' => [
