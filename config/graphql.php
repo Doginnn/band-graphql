@@ -3,10 +3,13 @@
 declare(strict_types = 1);
 
 use App\GraphQL\Mutations\CreateAlbumMutation;
+use App\GraphQL\Mutations\CreateLyricMutation;
 use App\GraphQL\Mutations\CreateMusicMutation;
 use App\GraphQL\Mutations\DestroyAlbumMutation;
+use App\GraphQL\Mutations\DestroyLyricMutation;
 use App\GraphQL\Mutations\DestroyMusicMutation;
 use App\GraphQL\Mutations\UpdateAlbumMutation;
+use App\GraphQL\Mutations\UpdateLyricMutation;
 use App\GraphQL\Mutations\UpdateMusicMutation;
 use App\GraphQL\Queries\AlbumQuery;
 use App\GraphQL\Queries\AlbumsQuery;
@@ -92,19 +95,22 @@ return [
         'default' => [
             'query' => [
                 AlbumQuery::class,
-                AlbumsQuery::class,
                 MusicQuery::class,
-                MusicsQuery::class,
                 LyricQuery::class,
+                AlbumsQuery::class,
+                MusicsQuery::class,
                 LyricsQuery::class
             ],
             'mutation' => [
                 CreateAlbumMutation::class,
-                UpdateAlbumMutation::class,
-                DestroyAlbumMutation::class,
                 CreateMusicMutation::class,
+                CreateLyricMutation::class,
+                UpdateAlbumMutation::class,
                 UpdateMusicMutation::class,
+                UpdateLyricMutation::class,
+                DestroyAlbumMutation::class,
                 DestroyMusicMutation::class,
+                DestroyLyricMutation::class
             ],
             // The types only available in this schema
             'types' => [
