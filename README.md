@@ -66,7 +66,7 @@ Acesse o projeto
 
 [http://localhost:8000](http://localhost:8000)
 
-## INSTRUÇÕES PARA POPULAR DADOS NO BANCO(Álbums, Músicas e Letras)
+# INSTRUÇÕES PARA POPULAR DADOS NO BANCO(Álbums, Músicas e Letras)
 
 Foram criados Factories para popular o banco com Álbums, Músicas e Letras. Para popular o banco, basta rodar o comando correto.
 
@@ -77,4 +77,201 @@ php artisan migrate --seed
 Caso já tenha rodado o "php artisan migrate"(Apenas popula os dados)
 ```sh
 php artisan db:seed
+```
+
+# INSTRUÇÕES PARA TESTAR AS QUERIES E MUTATIONS(Albums, Musics e Lyrics)
+Todas foram testadas pelo [POSTMAN](https://www.postman.com/)
+
+## QUERIES
+### (ALBUMS)
+POST - ID ALBUM
+```sh
+query {
+    album(id: 1) {
+        id
+        title
+        release_date
+    }
+}
+```
+
+POST - ALL ALBUMS
+```shell
+query {
+    albums {
+        id
+        title
+        release_date
+    }
+}
+```
+
+### (MUSICS)
+POST - ID MUSIC
+```sh
+query {
+    music(id: 1) {
+        id
+        title
+        duration
+        album_id
+    }
+}
+```
+
+POST - ALL MUSICS
+```shell
+query {
+    musics {
+        id
+        title
+        duration
+        album_id
+    }
+}
+```
+
+### (LYRICS)
+POST - ID LYRIC
+```sh
+query {
+    lyric(id: 1) {
+        id
+        content
+        music_id
+    }
+}
+```
+
+POST - ALL LYRICS
+```shell
+query {
+    lyrics {
+        id
+        content
+        music_id
+    }
+}
+```
+
+## MUTATIONS
+### (ALBUMS)
+POST - CREATE ALBUM
+```shell
+mutation {
+    createAlbum(
+        title: "Teste de criação Album",
+        release_date: "2024-02-26"
+    ) {
+        id
+        title
+        release_date
+    }
+}
+```
+
+POST - UPDATE ALBUM
+```shell
+mutation {
+    updateAlbum(
+        id: 1
+        title: "Teste de modificação Album",
+        release_date: "2024-02-26"
+    ) {
+        id
+        title
+        release_date
+    }
+}
+```
+
+POST - DESTROY ALBUM
+```shell
+mutation {
+    destroyAlbum(
+        id: 1
+    )
+}
+```
+
+### (MUSICS)
+POST - CREATE MUSIC
+```shell
+mutation {
+    createMusic(
+        title: "Teste de criação Música",
+        duration: "2024-02-26",
+        album_id: "1"
+    ) {
+        id
+        title
+        duration
+        album_id
+    }
+}
+```
+
+POST - UPDATE MUSIC
+```shell
+mutation {
+    updateMusic(
+        id: 1
+        title: "Teste de edição Música",
+        duration: "33",
+        album_id: "1"
+    ) {
+        id
+        title
+        duration
+        album_id
+    }
+}
+```
+
+POST - DESTROY MUSIC
+```shell
+mutation {
+    destroyMusic(
+        id: 1
+    )
+}
+```
+
+### (LYRICS)
+POST - CREATE LYRIC
+```shell
+mutation {
+    createLyric(
+        content: "Teste de criação Letra",
+        music_id: "1"
+    ) {
+        id
+        content
+        music_id
+    }
+}
+```
+
+POST - UPDATE LYRIC
+```shell
+mutation {
+    updateLyric(
+        id: 31
+        content: "Teste de edição Letra",
+        music_id: "1"
+    ) {
+        id
+        content
+        music_id
+    }
+}
+```
+
+POST - DESTROY LYRIC
+```shell
+mutation {
+    destroyLyric(
+        id: 1
+    )
+}
 ```
